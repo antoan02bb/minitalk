@@ -6,7 +6,7 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:17:47 by aantonie          #+#    #+#             */
-/*   Updated: 2024/04/03 18:34:46 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:33:14 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,45 @@
 #include <stdio.h>
 #include <unistd.h>
 
+/**
+ * @param bit_index - keep track of the position of the bit in current_char
+ * 
+ * @brief 1. shift the bits of current_char one position to the left, so the rigthmost(LSB) becomes 0 and makes space for the next bit
+ * @brief 2. append the received signal(0 or 1) to current_char
+ * @brief 3. reset the bit_index to 0 and the current_char to 0
+*/
 static void	signal_handler(int signal)
 {
-	char	current_char = 0;
-	int		bit_index = 0; // keep track of the position of the bit in current_char
+	static char	current_char;
+	static int	bit_index;
 
-	// 1. extract the bit value of the received signal(0 or 1) and append it it to current_char
-	current_char |= (signal == SIGUSR1);
+	current_char <<= 1;
+	
+	if (signal == SIGUSR1)
+		current_char |= 1;
+	
 	bit_index++;
 
     // if all 8 bits have been received
 	if (bit_index == 8)
 	{
-        ft_printf("%c", current_char);
+		ft_printf("%c", current_char);
+		
+		current_char = 0;
+		bit_index = 0;
 	}
-    else
-		/* shift the bits of current_char one position to the left
-		by doing so, the rigthmost(LSB) becomes 0 and makes space for the next bit */
-        current_char <<= 1;
+        
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	ft_printf("The ID of the server is: %d", getpid());
-	signal(SIGUSR2, signal_handler);
-	signal(SIGUSR1, signal_handler);
+	(void)argv;
+	if (argc != 1)
+		return (ft_printf("Wrong number of arguments"), 1);
 	// enter an infinite loop and wait for signals
+	ft_printf("The ID of the server is: %d", getpid());
+	signal(SIGUSR1, signal_handler);
+	signal(SIGUSR2, signal_handler);
 	while (1)
 		pause();
 	return (0);
