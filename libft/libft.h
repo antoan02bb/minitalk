@@ -6,17 +6,17 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:17:07 by aantonie          #+#    #+#             */
-/*   Updated: 2024/05/15 02:29:50 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:36:11 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
 
 int					ft_isalnum(int c);
 
@@ -81,7 +81,6 @@ int					ft_memcmp(const void *s1, const void *s2, size_t len);
 
 int					ft_strncmp(char const *s1, char const *s2, size_t n);
 
-
 // file descriptor
 void				ft_putendl_fd(char *s, int fd);
 
@@ -109,14 +108,14 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 // printf
-int		ft_print_hex(unsigned int num, const char format);
-int		ft_print_ptr(unsigned long long ptr);
-int		ft_printstr(char *str);
-int		ft_putchar(char c);
-int		ft_printf(const char *form_str, ...);
-int 	ft_print_char(char c);
-int		ft_print_nbr(int n);
-int 	ft_print_unsigned(unsigned int n);
-//int		ft_putnbr_fd(long n, int fd);
+int					ft_print_hex(unsigned int num, const char format);
+int					ft_print_ptr(unsigned long long ptr);
+int					ft_printstr(char *str);
+int					ft_putchar(char c);
+int					ft_printf(const char *form_str, ...);
+int					ft_print_char(char c);
+int					ft_print_nbr(int n);
+int					ft_print_unsigned(unsigned int n);
+// int		ft_putnbr_fd(long n, int fd);
 
 #endif

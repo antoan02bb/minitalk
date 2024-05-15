@@ -6,13 +6,13 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 18:16:31 by aantonie          #+#    #+#             */
-/*   Updated: 2024/04/03 18:30:57 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:39:39 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_num_len(unsigned	int num)
+int	ft_num_len(unsigned int num)
 {
 	int	len;
 
