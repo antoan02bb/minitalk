@@ -2,6 +2,8 @@
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "ft_printf/ft_printf.h"
+
 
 void	receive_ack(int sig)
 {

@@ -6,7 +6,7 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:17:07 by aantonie          #+#    #+#             */
-/*   Updated: 2024/04/03 18:32:11 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/15 02:29:50 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ int					ft_strncmp(char const *s1, char const *s2, size_t n);
 // file descriptor
 void				ft_putendl_fd(char *s, int fd);
 
-void				ft_putchar_fd(char c, int fd);
+int					ft_putchar_fd(char c, int fd);
 
 void				ft_putstr_fd(char *s, int fd);
 
-void				ft_putnbr_fd(int n, int fd);
+int					ft_putnbr_fd(long n, int fd);
 
 // Definition of a simple linked list node structure
 typedef struct s_list
@@ -117,6 +117,6 @@ int		ft_printf(const char *form_str, ...);
 int 	ft_print_char(char c);
 int		ft_print_nbr(int n);
 int 	ft_print_unsigned(unsigned int n);
-// int		ft_putnbr_fd(long n, int fd);
+//int		ft_putnbr_fd(long n, int fd);
 
 #endif

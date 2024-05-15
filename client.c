@@ -6,7 +6,7 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:17:43 by aantonie          #+#    #+#             */
-/*   Updated: 2024/05/14 15:36:21 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/14 19:03:56 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "ft_printf/ft_printf.h"
+
 
 /**
  * @brief 	convert the character(from the message in the command line arguments) into 8 bits and send each bit as a signal to the server

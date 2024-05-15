@@ -6,17 +6,17 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 00:28:41 by aantonie          #+#    #+#             */
-/*   Updated: 2023/11/06 00:28:50 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/15 02:19:14 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s)
 {
 	while (*s)
 	{
-		write(fd, s, 1);
+		write(1, s, 1);
 		s++;
 	}
 }

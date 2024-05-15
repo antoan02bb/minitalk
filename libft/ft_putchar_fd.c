@@ -6,15 +6,18 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:25:02 by aantonie          #+#    #+#             */
-/*   Updated: 2023/11/05 23:36:44 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/15 02:22:52 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+
+	// The function returns 1 if the character is printed successfully.
+	return (1);
 }
 
 // What is a file descriptor?

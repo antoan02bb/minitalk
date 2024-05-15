@@ -8,19 +8,28 @@ OBJECTS = $(SOURCES:.c=.o)
 BONUS_SOURCES = client_bonus.c server_bonus.c
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
+RM = rm -f
 CC = gcc 
 CFLAGS = -Wall -Wextra -Werror
 
 all: server client
 bonus: server_bonus client_bonus
 
-server: server.o libft
-	@$(CC) -o $@ $< -Llibft -lft
+server: server.o libft ft_printf
+	@$(CC) -o $@ $< -Llibft -lft -Lft_printf -lftprintf
 	@echo "$(CHECK)Compiled Server Successfully$(CHECK)"
 
-client: client.o libft
-	@$(CC) -o $@ $< -Llibft -lft
+client: client.o libft ft_printf
+	@$(CC) -o $@ $< -Llibft -lft -Lft_printf -lftprintf
 	@echo "$(CHECK)Compiled Client Successfully$(CHECK)"
+
+server_bonus: server_bonus.o libft ft_printf
+	@$(CC) -o $@ $< -Llibft -lft -Lft_printf -lftprintf
+	@echo "$(CHECK)Compiled Server Bonus Successfully$(CHECK)"
+
+client_bonus: client_bonus.o libft ft_printf
+	@$(CC) -o $@ $< -Llibft -lft -Lft_printf -lftprintf
+	@echo "$(CHECK)Compiled Client Bonus Successfully$(CHECK)"
 
 %.o: %.c
 	@$(CC) -c $(CFLAGS) $?
@@ -32,12 +41,12 @@ ft_printf:
 	@make -C ft_printf
 
 clean:
-	@rm -f $(OBJECTS)
+	@rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
-	@rm -f server client libft/libft.a
+	@rm -f server client server_bonus client_bonus libft/libft.a ft_printf/libftprintf.a
 	@echo "$(BROOM)Cleaned Successfully$(BROOM)"
 
 re: fclean all bonus
 
-.PHONY: all libft clean fclean re
+.PHONY: all libft ft_printf clean fclean re

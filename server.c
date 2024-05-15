@@ -6,7 +6,7 @@
 /*   By: aantonie <aantonie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:17:47 by aantonie          #+#    #+#             */
-/*   Updated: 2024/05/14 15:33:14 by aantonie         ###   ########.fr       */
+/*   Updated: 2024/05/15 02:33:31 by aantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "ft_printf/ft_printf.h"
+
 
 /**
  * @param bit_index - keep track of the position of the bit in current_char
